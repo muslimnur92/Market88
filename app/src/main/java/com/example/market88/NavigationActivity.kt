@@ -1,6 +1,8 @@
 package com.example.market88
 
+import android.nfc.Tag
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -8,6 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.market88.databinding.ActivityNavigationBinding
+import com.example.market88.util.Prefs
 
 class NavigationActivity : AppCompatActivity() {
 
@@ -31,5 +34,19 @@ class NavigationActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        navView.setOnItemSelectedListener {
+
+            if (it.itemId == R.id.navigation_notifications) {
+                val s = Prefs(this)
+                if (s.getIslogin()){ //true atau false
+                    Log.d("Tag", "sudah login")
+                } else {
+                    Log.d("Tag", "belum login, pindah kemenu login")
+                }
+            } else {
+                Log.d("Tag", "onCreate: yang lain" + it.itemId)
+            }
+            return@setOnItemSelectedListener true
+        }
     }
 }
