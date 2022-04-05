@@ -1,5 +1,6 @@
 package com.example.market88
 
+import android.content.Intent
 import android.nfc.Tag
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.market88.databinding.ActivityNavigationBinding
+import com.example.market88.ui.login.LoginActivity
 import com.example.market88.util.Prefs
 
 class NavigationActivity : AppCompatActivity() {
@@ -41,9 +43,11 @@ class NavigationActivity : AppCompatActivity() {
                 if (s.getIslogin()){ //true atau false
                     Log.d("Tag", "sudah login")
                 } else {
+                    startActivity(Intent(this, LoginActivity::class.java))
                     Log.d("Tag", "belum login, pindah kemenu login")
                 }
             } else {
+                navController.navigate(it.itemId)
                 Log.d("Tag", "onCreate: yang lain" + it.itemId)
             }
             return@setOnItemSelectedListener true
