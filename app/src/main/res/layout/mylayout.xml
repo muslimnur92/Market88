@@ -13,9 +13,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="hy Im muslim "
+            android:text="Welcome to Market "
             android:textStyle="bold"
-            android:textSize="50dp"
+            android:textSize="@dimen/_30ssp"
             android:textColor="#030303" />
 
         <TextView
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:text="silahkan like "
             android:textStyle="bold"
-            android:textSize="50dp"
+            android:textSize="@dimen/_25ssp"
             android:textColor="#030303" />
 
         <TextView
